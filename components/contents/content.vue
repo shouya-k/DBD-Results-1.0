@@ -10,7 +10,11 @@
 
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer07.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer07.png"
+          alt=""
+        />
         カニバル
       </td>
       <td class="table__td">12%</td>
@@ -20,7 +24,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer06.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer06.png"
+          alt=""
+        />
         シェイプ
       </td>
       <td class="table__td">10%</td>
@@ -30,7 +38,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer01.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer01.png"
+          alt=""
+        />
         レイス
       </td>
       <td class="table__td">10%</td>
@@ -40,7 +52,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer10.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer10.png"
+          alt=""
+        />
         スピリット
       </td>
       <td class="table__td">7%</td>
@@ -50,7 +66,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer16.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer16.png"
+          alt=""
+        />
         エクセキューショナー
       </td>
       <td class="table__td">7%</td>
@@ -60,7 +80,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer03.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer03.png"
+          alt=""
+        />
         ヒルビリー
       </td>
       <td class="table__td">6%</td>
@@ -70,7 +94,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer02.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer02.png"
+          alt=""
+        />
         ハグ
       </td>
       <td class="table__td">5%</td>
@@ -80,7 +108,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer04.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer04.png"
+          alt=""
+        />
         ドクター
       </td>
       <td class="table__td">4%</td>
@@ -90,7 +122,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer05.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer05.png"
+          alt=""
+        />
         ハントレス
       </td>
       <td class="table__td">6%</td>
@@ -100,7 +136,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer11.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer11.png"
+          alt=""
+        />
         リージョン
       </td>
       <td class="table__td">6%</td>
@@ -111,7 +151,11 @@
 
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer09.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer09.png"
+          alt=""
+        />
         クラウン
       </td>
       <td class="table__td">6%</td>
@@ -122,7 +166,11 @@
 
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer12.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer12.png"
+          alt=""
+        />
         プレイグ
       </td>
       <td class="table__td">5%</td>
@@ -132,7 +180,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer13.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer13.png"
+          alt=""
+        />
         ゴーストフェイス
       </td>
       <td class="table__td">5%</td>
@@ -142,7 +194,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer08.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer08.png"
+          alt=""
+        />
         ピッグ
       </td>
       <td class="table__td">4%</td>
@@ -153,7 +209,11 @@
 
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer15.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer15.png"
+          alt=""
+        />
         鬼
       </td>
       <td class="table__td">3%</td>
@@ -164,7 +224,11 @@
 
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer17.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer17.png"
+          alt=""
+        />
         トラッパー
       </td>
       <td class="table__td">3%</td>
@@ -174,7 +238,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer18.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer18.png"
+          alt=""
+        />
         ナース
       </td>
       <td class="table__td">3%</td>
@@ -184,7 +252,11 @@
     </tr>
     <tr class="table__tr">
       <td class="table__td table__name">
-        <img class="table__image" src="~/assets/img/killer14.png" alt="" />
+        <img
+          class="table__image"
+          src="~/assets/img/killer/killer14.png"
+          alt=""
+        />
         デモゴルゴン
       </td>
       <td class="table__td">2%</td>

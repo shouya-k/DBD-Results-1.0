@@ -1,17 +1,18 @@
 <template>
   <div class="bg">
-    <Header :isResultActive="true" />
-    <Content />
+    <Header :isNewResultActive="true" />
+    <From />
   </div>
 </template>
 
 <script>
 import Header from '~/components/layout/header'
-import Content from '~/components/contents/results-content'
+// import From from '~/components/contents/new-results'
+import From from '~/components/contents/results-form'
 export default {
   components: {
     Header,
-    Content,
+    From,
   },
 }
 </script>
