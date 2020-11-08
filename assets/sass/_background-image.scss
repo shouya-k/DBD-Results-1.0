@@ -1,0 +1,10 @@
+.bg {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('~@/assets/img/bg.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+}
