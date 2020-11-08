@@ -36,12 +36,12 @@
           />
         </td>
         <td class="table__td">
-          <select class="table__select" name="">
-            <option value="0人">0人</option>
-            <option value="1人">1人</option>
-            <option value="2人">2人</option>
-            <option value="3人">3人</option>
-            <option value="4人">4人</option>
+          <select class="table__select" v-model="selected">
+            <option>0人</option>
+            <option>1人</option>
+            <option>2人</option>
+            <option>3人</option>
+            <option>4人</option>
           </select>
         </td>
       </tr>
@@ -85,6 +85,7 @@ export default {
   },
   data() {
     return {
+      selected: '',
       killerHidden: true,
       park01Hidden: true,
       park02Hidden: true,
