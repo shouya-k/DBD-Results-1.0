@@ -1,5 +1,5 @@
 <template>
-  <form class="form">
+  <form class="form" @submit.prevent="addResult">
     <table class="table">
       <tr class="table__header">
         <th class="table__th">対戦キラー</th>
@@ -9,34 +9,36 @@
       </tr>
       <tr class="table__tr">
         <td class="table__td table__name" @click="showKillerModal">
-          <img class="table__img" :src="selectKillerImage" alt="" />
-          {{ selectKillerName }}
+          <img class="table__img" :src="results.killerImage" alt="" />
+          {{ results.killerName }}
         </td>
-        <td class="table__td"><input class="table__input" type="text" /></td>
+        <td class="table__td">
+          <input v-model="results.score" class="table__input" type="text" />
+        </td>
         <td class="table__td">
           <img
             class="table__image"
-            :src="selectParkImage01"
+            :src="results.parkImage01"
             @click="showPark01Modal"
           />
           <img
             class="table__image"
-            :src="selectParkImage02"
+            :src="results.parkImage02"
             @click="showPark02Modal"
           />
           <img
             class="table__image"
-            :src="selectParkImage03"
+            :src="results.parkImage03"
             @click="showPark03Modal"
           />
           <img
             class="table__image"
-            :src="selectParkImage04"
+            :src="results.parkImage04"
             @click="showPark04Modal"
           />
         </td>
         <td class="table__td">
-          <select class="table__select" v-model="selected">
+          <select class="table__select" v-model="results.escape">
             <option>0人</option>
             <option>1人</option>
             <option>2人</option>
@@ -76,6 +78,7 @@
 </template>
 
 <script>
+import { ADD__RESULT } from '~/apollo/queries'
 import KillerModal from '~/components/parts/killer-modal'
 import ParkModal from '~/components/parts/park-modal'
 export default {
@@ -85,21 +88,56 @@ export default {
   },
   data() {
     return {
-      selected: '',
+      results: {
+        killerName: '',
+        killerImage: null,
+        score: '',
+        parkImage01: null,
+        parkImage02: null,
+        parkImage03: null,
+        parkImage04: null,
+        escape: '',
+      },
       killerHidden: true,
       park01Hidden: true,
       park02Hidden: true,
       park03Hidden: true,
       park04Hidden: true,
-      selectKillerImage: null,
-      selectKillerName: '',
-      selectParkImage01: null,
-      selectParkImage02: null,
-      selectParkImage03: null,
-      selectParkImage04: null,
     }
   },
   methods: {
+    addResult() {
+      const {
+        killerName,
+        killerImage,
+        score,
+        parkImage01,
+        parkImage02,
+        parkImage03,
+        parkImage04,
+        escape,
+      } = this.results
+      this.$apollo
+        .mutate({
+          mutation: ADD__RESULT,
+          variables: {
+            killerName,
+            killerImage,
+            score,
+            parkImage01,
+            parkImage02,
+            parkImage03,
+            parkImage04,
+            escape,
+          },
+        })
+        .then(() => {
+          location.replace('/result')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
     showKillerModal() {
       this.killerHidden = false
     },
@@ -108,8 +146,8 @@ export default {
     },
     select(event) {
       this.killerHidden = true
-      this.selectKillerImage = event.url
-      this.selectKillerName = event.name
+      this.results.killerImage = event.url
+      this.results.killerName = event.name
     },
     showPark01Modal() {
       this.park01Hidden = false
@@ -137,19 +175,19 @@ export default {
     },
     park01Select(img) {
       this.park01Hidden = true
-      this.selectParkImage01 = img
+      this.results.parkImage01 = img
     },
     park02Select(img) {
       this.park02Hidden = true
-      this.selectParkImage02 = img
+      this.results.parkImage02 = img
     },
     park03Select(img) {
       this.park03Hidden = true
-      this.selectParkImage03 = img
+      this.results.parkImage03 = img
     },
     park04Select(img) {
       this.park04Hidden = true
-      this.selectParkImage04 = img
+      this.results.parkImage04 = img
     },
   },
 }
