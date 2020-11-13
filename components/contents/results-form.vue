@@ -38,12 +38,16 @@
           />
         </td>
         <td class="table__td">
-          <select class="table__select" v-model="results.escape">
-            <option>0人</option>
-            <option>1人</option>
-            <option>2人</option>
-            <option>3人</option>
-            <option>4人</option>
+          <select
+            class="table__select"
+            @change="winLose($event)"
+            v-model="results.escape"
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
           </select>
         </td>
       </tr>
@@ -78,7 +82,7 @@
 </template>
 
 <script>
-import { ADD__RESULT } from '~/apollo/queries'
+import { ADD_RESULT } from '~/apollo/queries'
 import KillerModal from '~/components/parts/killer-modal'
 import ParkModal from '~/components/parts/park-modal'
 export default {
@@ -97,6 +101,8 @@ export default {
         parkImage03: null,
         parkImage04: null,
         escape: '',
+        win: true,
+        lose: false,
       },
       killerHidden: true,
       park01Hidden: true,
@@ -106,6 +112,15 @@ export default {
     }
   },
   methods: {
+    winLose(event) {
+      if (event.target.value <= 1) {
+        this.results.win = false
+        this.results.lose = true
+      } else {
+        this.results.win = true
+        this.results.lose = false
+      }
+    },
     addResult() {
       const {
         killerName,
@@ -116,10 +131,12 @@ export default {
         parkImage03,
         parkImage04,
         escape,
+        win,
+        lose,
       } = this.results
       this.$apollo
         .mutate({
-          mutation: ADD__RESULT,
+          mutation: ADD_RESULT,
           variables: {
             killerName,
             killerImage,
@@ -129,9 +146,11 @@ export default {
             parkImage03,
             parkImage04,
             escape,
+            win,
+            lose,
           },
         })
-        .then(() => {
+        .then((data) => {
           location.replace('/result')
         })
         .catch((error) => {

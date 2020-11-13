@@ -3,29 +3,29 @@
     <nav class="nav">
       <ul class="nav__menu">
         <li class="nav__item">
-          <a
-            class="nav__link"
-            :class="{ 'nav__link--active': isIndexActive }"
-            href="/"
-            >戦績記録</a
-          >
-        </li>
-        <li class="nav__item">
-          <a
+          <nuxt-link
+            to="/"
             class="nav__link"
             active-class="nav__link--active"
-            :class="{ 'nav__link--active': isResultActive }"
-            href="/result"
-            >直近戦績</a
+            exact
+            >戦績記録</nuxt-link
           >
         </li>
         <li class="nav__item">
-          <a
+          <nuxt-link
+            to="/result"
             class="nav__link"
-            :class="{ 'nav__link--active': isNewResultActive }"
-            href="/new-result"
-            >戦績登録</a
+            active-class="nav__link--active"
+            >直近戦績</nuxt-link
           >
+        </li>
+        <li class="nav__item">
+          <nuxt-link
+            to="/new-result"
+            class="nav__link"
+            active-class="nav__link--active"
+            >戦績記録
+          </nuxt-link>
         </li>
       </ul>
     </nav>
@@ -33,9 +33,7 @@
 </template>
 
 <script>
-export default {
-  props: ['isIndexActive', 'isResultActive', 'isNewResultActive'],
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>

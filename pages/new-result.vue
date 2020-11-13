@@ -1,6 +1,6 @@
 <template>
   <div class="bg">
-    <Header :isNewResultActive="true" />
+    <Header />
     <From />
   </div>
 </template>

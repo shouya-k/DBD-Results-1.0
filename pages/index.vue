@@ -1,6 +1,6 @@
 <template>
   <div class="bg">
-    <Head :isIndexActive="true" />
+    <Head />
     <Content />
   </div>
 </template>

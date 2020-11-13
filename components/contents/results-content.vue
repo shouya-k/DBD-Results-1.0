@@ -7,39 +7,36 @@
       <th class="table__th">脱出人数</th>
     </tr>
 
-    <tr class="table__tr table__tr--win">
+    <tr
+      class="table__tr"
+      :class="{ 'table__tr--win': result.win, 'table__tr--lose': result.lose }"
+      v-for="result in results"
+      :key="result.id"
+    >
       <td class="table__td table__name">
-        <img class="table__img" src="~/assets/img/killer/killer07.png" alt="" />
-        カニバル
+        <img class="table__img" :src="result.killerImage" alt="" />
+        {{ result.killerName }}
       </td>
-      <td class="table__td">22,014</td>
+      <td class="table__td">{{ result.score }}</td>
       <td class="table__td">
-        <img class="table__image" src="~/assets/img/park/park03.png" alt="" />
-        <img class="table__image" src="~/assets/img/park/park01.png" alt="" />
-        <img class="table__image" src="~/assets/img/park/park02.png" alt="" />
-        <img class="table__image" src="~/assets/img/park/park04.png" alt="" />
+        <img class="table__image" :src="result.parkImage01" alt="" />
+        <img class="table__image" :src="result.parkImage02" alt="" />
+        <img class="table__image" :src="result.parkImage03" alt="" />
+        <img class="table__image" :src="result.parkImage04" alt="" />
       </td>
-      <td class="table__td">3人</td>
-    </tr>
-    <tr class="table__tr table__tr--lose">
-      <td class="table__td table__name">
-        <img class="table__img" src="~/assets/img/killer/killer06.png" alt="" />
-        シェイプ
-      </td>
-      <td class="table__td">8,000</td>
-      <td class="table__td">
-        <img class="table__image" src="~/assets/img/park/park03.png" alt="" />
-        <img class="table__image" src="~/assets/img/park/park01.png" alt="" />
-        <img class="table__image" src="~/assets/img/park/park02.png" alt="" />
-        <img class="table__image" src="~/assets/img/park/park04.png" alt="" />
-      </td>
-      <td class="table__td">1人</td>
+      <td class="table__td">{{ result.escape + '人' }}</td>
     </tr>
   </table>
 </template>
 
 <script>
-export default {}
+import { RESULT_LIST } from '~/apollo/queries'
+export default {
+  name: 'ResultList',
+  apollo: {
+    results: RESULT_LIST,
+  },
+}
 </script>
 
 <style lang="scss" scoped>
