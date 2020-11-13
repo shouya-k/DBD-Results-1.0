@@ -1,16 +1,16 @@
 <template>
   <div class="bg">
-    <Head />
+    <Header />
     <Content />
   </div>
 </template>
 
 <script>
-import Head from '~/components/layout/header'
-import Content from '~/components/contents/content'
+import Header from '~/components/layout/header'
+import Content from '~/components/contents/results-content'
 export default {
   components: {
-    Head,
+    Header,
     Content,
   },
 }

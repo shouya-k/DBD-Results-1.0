@@ -1,0 +1,47 @@
+<template>
+  <tr class="table__tr">
+    <td class="table__td table__name">
+      <img class="table__image" src="~/assets/img/killer/killer12.png" alt="" />
+      スピリット
+    </td>
+    <td class="table__td">{{ spirit.matches }}</td>
+    <td class="table__td">
+      {{ Math.round(spirit.totalScore / spirit.matches) }}
+    </td>
+    <td class="table__td">
+      {{ Math.round((spirit.win / spirit.matches) * 100) + '%' }}
+    </td>
+  </tr>
+</template>
+
+<script>
+import { KILLER12_DATA } from '~/apollo/queries'
+export default {
+  apollo: {
+    killers: KILLER12_DATA,
+  },
+  data() {
+    return {
+      killers: [],
+      spirit: {
+        totalScore: 0,
+        matches: 0,
+        win: 0,
+      },
+    }
+  },
+  mounted() {
+    for (const killer of this.killers) {
+      this.spirit.totalScore += Number(killer.score)
+      this.spirit.matches++
+      if (killer.win === true) {
+        this.spirit.win++
+      }
+    }
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+@import '~/assets/sass/_killer-data';
+</style>
