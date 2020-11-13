@@ -1,0 +1,19 @@
+.table {
+  &__image {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    margin: 0 auto 5px;
+  }
+
+  &__name {
+    font-size: 1.2rem;
+  }
+
+  &__td {
+    width: 20%;
+    padding: 14px 0 7px;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+  }
+}
