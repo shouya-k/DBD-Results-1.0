@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.clown.totalScore += Number(killer.score)
-      this.clown.matches++
-      if (killer.win === true) {
-        this.clown.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.clown.totalScore += Number(killer.score)
+        this.clown.matches++
+        if (killer.win === true) {
+          this.clown.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>
