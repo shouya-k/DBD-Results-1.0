@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="legion.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer13.png" alt="" />
       リージョン
     </td>
-    <td class="table__td">{{ legion.matches }}</td>
+    <td class="table__td">{{ legion.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(legion.totalScore / legion.matches) }}
     </td>

@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="spirit.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer12.png" alt="" />
       スピリット
     </td>
-    <td class="table__td">{{ spirit.matches }}</td>
+    <td class="table__td">{{ spirit.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(spirit.totalScore / spirit.matches) }}
     </td>

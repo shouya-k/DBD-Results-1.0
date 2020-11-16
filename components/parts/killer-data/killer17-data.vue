@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="oni.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer17.png" alt="" />
       鬼
     </td>
-    <td class="table__td">{{ oni.matches }}</td>
+    <td class="table__td">{{ oni.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(oni.totalScore / oni.matches) }}
     </td>

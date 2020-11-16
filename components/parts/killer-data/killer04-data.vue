@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="nurse.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer04.png" alt="" />
       ナース
     </td>
-    <td class="table__td">{{ nurse.matches }}</td>
+    <td class="table__td">{{ nurse.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(nurse.totalScore / nurse.matches) }}
     </td>

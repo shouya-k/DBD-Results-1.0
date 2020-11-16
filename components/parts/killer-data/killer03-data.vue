@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="hillbilly.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer03.png" alt="" />
       ヒルビリー
     </td>
-    <td class="table__td">{{ hillbilly.matches }}</td>
+    <td class="table__td">{{ hillbilly.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(hillbilly.totalScore / hillbilly.matches) }}
     </td>

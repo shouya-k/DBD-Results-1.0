@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="demogorgon.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer16.png" alt="" />
       デモゴルゴン
     </td>
-    <td class="table__td">{{ demogorgon.matches }}</td>
+    <td class="table__td">{{ demogorgon.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(demogorgon.totalScore / demogorgon.matches) }}
     </td>

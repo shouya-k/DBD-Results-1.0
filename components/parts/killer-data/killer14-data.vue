@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="plague.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer14.png" alt="" />
       プレイグ
     </td>
-    <td class="table__td">{{ plague.matches }}</td>
+    <td class="table__td">{{ plague.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(plague.totalScore / plague.matches) }}
     </td>
