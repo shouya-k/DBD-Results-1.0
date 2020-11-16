@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="ghostface.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer15.png" alt="" />
       ゴーストフェイス
     </td>
-    <td class="table__td">{{ ghostface.matches }}</td>
+    <td class="table__td">{{ ghostface.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(ghostface.totalScore / ghostface.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.ghostface.totalScore += Number(killer.score)
-      this.ghostface.matches++
-      if (killer.win === true) {
-        this.ghostface.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.ghostface.totalScore += Number(killer.score)
+        this.ghostface.matches++
+        if (killer.win === true) {
+          this.ghostface.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>

@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="pig.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer10.png" alt="" />
       ピッグ
     </td>
-    <td class="table__td">{{ pig.matches }}</td>
+    <td class="table__td">{{ pig.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(pig.totalScore / pig.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.pig.totalScore += Number(killer.score)
-      this.pig.matches++
-      if (killer.win === true) {
-        this.pig.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.pig.totalScore += Number(killer.score)
+        this.pig.matches++
+        if (killer.win === true) {
+          this.pig.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>

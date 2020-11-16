@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="spirit.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer12.png" alt="" />
       スピリット
     </td>
-    <td class="table__td">{{ spirit.matches }}</td>
+    <td class="table__td">{{ spirit.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(spirit.totalScore / spirit.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.spirit.totalScore += Number(killer.score)
-      this.spirit.matches++
-      if (killer.win === true) {
-        this.spirit.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.spirit.totalScore += Number(killer.score)
+        this.spirit.matches++
+        if (killer.win === true) {
+          this.spirit.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>

@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="nurse.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer04.png" alt="" />
       ナース
     </td>
-    <td class="table__td">{{ nurse.matches }}</td>
+    <td class="table__td">{{ nurse.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(nurse.totalScore / nurse.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.nurse.totalScore += Number(killer.score)
-      this.nurse.matches++
-      if (killer.win === true) {
-        this.nurse.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.nurse.totalScore += Number(killer.score)
+        this.nurse.matches++
+        if (killer.win === true) {
+          this.nurse.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>

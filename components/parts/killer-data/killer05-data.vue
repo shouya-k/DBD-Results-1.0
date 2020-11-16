@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="hag.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer05.png" alt="" />
       ハグ
     </td>
-    <td class="table__td">{{ hag.matches }}</td>
+    <td class="table__td">{{ hag.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(hag.totalScore / hag.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.hag.totalScore += Number(killer.score)
-      this.hag.matches++
-      if (killer.win === true) {
-        this.hag.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.hag.totalScore += Number(killer.score)
+        this.hag.matches++
+        if (killer.win === true) {
+          this.hag.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>

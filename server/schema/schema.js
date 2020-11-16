@@ -40,7 +40,7 @@ const RootQuery = new GraphQLObjectType({
     results: {
       type: new GraphQLList(ResultType),
       resolve(parent, args) {
-        return Result.find({}).sort({ created_at: -1 })
+        return Result.find({}).sort({ created_at: -1 }).limit(20)
       },
     },
   },

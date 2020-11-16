@@ -111,6 +111,20 @@ export default {
       park04Hidden: true,
     }
   },
+  mounted() {
+    if (localStorage.parkImage01) {
+      this.results.parkImage01 = localStorage.parkImage01
+    }
+    if (localStorage.parkImage02) {
+      this.results.parkImage02 = localStorage.parkImage02
+    }
+    if (localStorage.parkImage03) {
+      this.results.parkImage03 = localStorage.parkImage03
+    }
+    if (localStorage.parkImage04) {
+      this.results.parkImage04 = localStorage.parkImage04
+    }
+  },
   methods: {
     winLose(event) {
       if (event.target.value <= 1) {
@@ -195,18 +209,22 @@ export default {
     park01Select(img) {
       this.park01Hidden = true
       this.results.parkImage01 = img
+      localStorage.parkImage01 = img
     },
     park02Select(img) {
       this.park02Hidden = true
       this.results.parkImage02 = img
+      localStorage.parkImage02 = img
     },
     park03Select(img) {
       this.park03Hidden = true
       this.results.parkImage03 = img
+      localStorage.parkImage03 = img
     },
     park04Select(img) {
       this.park04Hidden = true
       this.results.parkImage04 = img
+      localStorage.parkImage04 = img
     },
   },
 }

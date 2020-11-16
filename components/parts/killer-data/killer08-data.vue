@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="shape.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer08.png" alt="" />
       シェイプ
     </td>
-    <td class="table__td">{{ shape.matches }}</td>
+    <td class="table__td">{{ shape.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(shape.totalScore / shape.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.shape.totalScore += Number(killer.score)
-      this.shape.matches++
-      if (killer.win === true) {
-        this.shape.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.shape.totalScore += Number(killer.score)
+        this.shape.matches++
+        if (killer.win === true) {
+          this.shape.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>

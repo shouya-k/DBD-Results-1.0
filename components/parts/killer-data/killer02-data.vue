@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="wraith.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer02.png" alt="" />
       レイス
     </td>
-    <td class="table__td">{{ wraith.matches }}</td>
+    <td class="table__td">{{ wraith.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(wraith.totalScore / wraith.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.wraith.totalScore += Number(killer.score)
-      this.wraith.matches++
-      if (killer.win === true) {
-        this.wraith.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.wraith.totalScore += Number(killer.score)
+        this.wraith.matches++
+        if (killer.win === true) {
+          this.wraith.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>

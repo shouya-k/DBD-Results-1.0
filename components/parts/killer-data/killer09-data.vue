@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="cannibal.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer09.png" alt="" />
       カニバル
     </td>
-    <td class="table__td">{{ cannibal.matches }}</td>
+    <td class="table__td">{{ cannibal.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(cannibal.totalScore / cannibal.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.cannibal.totalScore += Number(killer.score)
-      this.cannibal.matches++
-      if (killer.win === true) {
-        this.cannibal.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.cannibal.totalScore += Number(killer.score)
+        this.cannibal.matches++
+        if (killer.win === true) {
+          this.cannibal.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>

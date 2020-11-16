@@ -1,10 +1,10 @@
 <template>
-  <tr class="table__tr">
+  <tr class="table__tr" v-if="plague.matches !== 0">
     <td class="table__td table__name">
       <img class="table__image" src="~/assets/img/killer/killer14.png" alt="" />
       プレイグ
     </td>
-    <td class="table__td">{{ plague.matches }}</td>
+    <td class="table__td">{{ plague.matches + '回' }}</td>
     <td class="table__td">
       {{ Math.round(plague.totalScore / plague.matches) }}
     </td>
@@ -31,13 +31,15 @@ export default {
     }
   },
   mounted() {
-    for (const killer of this.killers) {
-      this.plague.totalScore += Number(killer.score)
-      this.plague.matches++
-      if (killer.win === true) {
-        this.plague.win++
+    setTimeout(() => {
+      for (const killer of this.killers) {
+        this.plague.totalScore += Number(killer.score)
+        this.plague.matches++
+        if (killer.win === true) {
+          this.plague.win++
+        }
       }
-    }
+    }, 500)
   },
 }
 </script>
