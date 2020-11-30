@@ -13,11 +13,11 @@ DBD Mobileの戦績を登録できるアプリです。戦績登録から対戦�
 ## ローカル実行方法 / Build Setup
 
 ```
-* git clone https://github.com/shouya-k/my-web-app01.git
+$ git clone https://github.com/shouya-k/my-web-app01.git
 
-* yarn install
+$ yarn install
 
-* yarn dev & nodemon ./server/app
+$ yarn dev & nodemon ./server/app
 ```
 
 ## 使用技術 / Technology
