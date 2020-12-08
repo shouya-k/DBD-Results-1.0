@@ -7,67 +7,28 @@
       <th class="table__th">勝率</th>
     </tr>
 
-    <Trapper />
-    <Wraith />
-    <Hillbilly />
-    <Nurse />
-    <Hag />
-    <Doctor />
-    <Huntress />
-    <Shape />
-    <Cannibal />
-    <Pig />
-    <Clown />
-    <Spirit />
-    <Legion />
-    <Plague />
-    <GhostFace />
-    <Demogorgon />
-    <Oni />
-    <Executioner />
+    <KillerData
+      v-for="killer in killers"
+      :id="killer.id"
+      :key="killer.id"
+      :name="killer.name"
+      :img="killer.url"
+    ></KillerData>
   </table>
 </template>
 
 <script>
-import Trapper from '~/components/parts/killer-data/killer01-data'
-import Wraith from '~/components/parts/killer-data/killer02-data'
-import Hillbilly from '~/components/parts/killer-data/killer03-data'
-import Nurse from '~/components/parts/killer-data/killer04-data'
-import Hag from '~/components/parts/killer-data/killer05-data'
-import Doctor from '~/components/parts/killer-data/killer06-data'
-import Huntress from '~/components/parts/killer-data/killer07-data'
-import Shape from '~/components/parts/killer-data/killer08-data'
-import Cannibal from '~/components/parts/killer-data/killer09-data'
-import Pig from '~/components/parts/killer-data/killer10-data'
-import Clown from '~/components/parts/killer-data/killer11-data'
-import Spirit from '~/components/parts/killer-data/killer12-data'
-import Legion from '~/components/parts/killer-data/killer13-data'
-import Plague from '~/components/parts/killer-data/killer14-data'
-import GhostFace from '~/components/parts/killer-data/killer15-data'
-import Demogorgon from '~/components/parts/killer-data/killer16-data'
-import Oni from '~/components/parts/killer-data/killer17-data'
-import Executioner from '~/components/parts/killer-data/killer18-data'
+import KillerData from '../parts/killer-data.vue'
+import killersData from '~/static/js/killerData'
 export default {
   components: {
-    Trapper,
-    Wraith,
-    Hillbilly,
-    Nurse,
-    Hag,
-    Doctor,
-    Huntress,
-    Shape,
-    Cannibal,
-    Pig,
-    Clown,
-    Spirit,
-    Legion,
-    Plague,
-    GhostFace,
-    Demogorgon,
-    Oni,
-    Executioner,
+    KillerData
   },
+  data() {
+    return {
+      killers: killersData
+    }
+  }
 }
 </script>
 

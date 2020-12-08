@@ -1,0 +1,15 @@
+type Results @model @searchable {
+  id: ID!
+  killerId: ID!
+  killerName: String!
+  score: String!
+  killerImage: String
+  parkImage01: String
+  parkImage02: String
+  parkImage03: String
+  parkImage04: String
+  escape: String
+  win: Boolean
+  lose: Boolean
+  createdAt: AWSDateTime
+}

@@ -8,10 +8,10 @@
     </tr>
 
     <tr
-      class="table__tr"
-      :class="{ 'table__tr--win': result.win, 'table__tr--lose': result.lose }"
       v-for="result in results"
       :key="result.id"
+      class="table__tr"
+      :class="{ 'table__tr--win': result.win, 'table__tr--lose': result.lose }"
     >
       <td class="table__td table__name">
         <img class="table__img" :src="result.killerImage" alt="" />
@@ -30,12 +30,32 @@
 </template>
 
 <script>
-import { RESULT_LIST } from '~/apollo/queries'
+import { API } from 'aws-amplify'
+import { searchResultss } from '../../graphql/queries'
 export default {
-  name: 'ResultList',
-  apollo: {
-    results: RESULT_LIST,
+  data() {
+    return {
+      results: {}
+    }
   },
+  created() {
+    this.getReadmes()
+  },
+  methods: {
+    async getReadmes() {
+      const listResults = await API.graphql({
+        query: searchResultss,
+        variables: {
+          sort: {
+            field: 'createdAt',
+            direction: 'desc'
+          },
+          limit: 30
+        }
+      })
+      this.results = listResults.data.searchResultss.items
+    }
+  }
 }
 </script>
 

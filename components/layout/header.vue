@@ -3,27 +3,17 @@
     <nav class="nav">
       <ul class="nav__menu">
         <li class="nav__item">
-          <nuxt-link
-            to="/"
-            class="nav__link"
-            active-class="nav__link--active"
-            exact
+          <nuxt-link to="/" class="nav__link" active-class="nav__link--active" exact
             >戦績記録</nuxt-link
           >
         </li>
         <li class="nav__item">
-          <nuxt-link
-            to="/result"
-            class="nav__link"
-            active-class="nav__link--active"
+          <nuxt-link to="/result" class="nav__link" active-class="nav__link--active"
             >直近戦績</nuxt-link
           >
         </li>
         <li class="nav__item">
-          <nuxt-link
-            to="/new-result"
-            class="nav__link"
-            active-class="nav__link--active"
+          <nuxt-link to="/new-result" class="nav__link" active-class="nav__link--active"
             >戦績記録
           </nuxt-link>
         </li>

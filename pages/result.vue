@@ -11,8 +11,8 @@ import Content from '~/components/contents/results-content'
 export default {
   components: {
     Header,
-    Content,
-  },
+    Content
+  }
 }
 </script>
 

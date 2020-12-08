@@ -7,13 +7,12 @@
 
 <script>
 import Header from '~/components/layout/header'
-// import From from '~/components/contents/new-results'
 import From from '~/components/contents/results-form'
 export default {
   components: {
     Header,
-    From,
-  },
+    From
+  }
 }
 </script>
 

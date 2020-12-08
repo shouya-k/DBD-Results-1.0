@@ -11,8 +11,8 @@ import Content from '~/components/contents/content'
 export default {
   components: {
     Head,
-    Content,
-  },
+    Content
+  }
 }
 </script>
 

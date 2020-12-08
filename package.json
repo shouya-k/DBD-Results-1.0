@@ -11,8 +11,11 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@aws-amplify/ui-vue": "^0.2.30",
     "@nuxtjs/apollo": "^4.0.1-rc.4",
+    "@nuxtjs/axios": "^5.12.3",
     "apollo-cache-inmemory": "^1.6.6",
+    "aws-amplify": "^3.3.11",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
