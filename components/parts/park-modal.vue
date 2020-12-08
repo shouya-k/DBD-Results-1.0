@@ -2,15 +2,11 @@
   <div>
     <div class="modal" :class="{ modal__hidden: isHidden }">
       <p class="modal__title">使用パーク</p>
-      <div class="modal__images" v-for="img in images" :key="img.id">
+      <div v-for="img in images" :key="img.id" class="modal__images">
         <img class="modal__img" :src="img" @click="select(img)" />
       </div>
     </div>
-    <div
-      class="modal__mask"
-      :class="{ modal__hidden: isHidden }"
-      @click="hiddenModal"
-    ></div>
+    <div class="modal__mask" :class="{ modal__hidden: isHidden }" @click="hiddenModal"></div>
   </div>
 </template>
 
@@ -22,7 +18,7 @@ export default {
     return {
       selectImage: null,
       selectName: null,
-      images: parkData,
+      images: parkData
     }
   },
   methods: {
@@ -31,8 +27,8 @@ export default {
     },
     select(img) {
       this.$emit('parkSelect', img)
-    },
-  },
+    }
+  }
 }
 </script>
 

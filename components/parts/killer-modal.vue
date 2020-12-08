@@ -2,16 +2,12 @@
   <div>
     <div class="modal" :class="{ modal__hidden: isHidden }">
       <p class="modal__title">対戦キラー</p>
-      <div class="modal__image" v-for="img in images" :key="img.id">
+      <div v-for="img in images" :key="img.id" class="modal__image">
         <img class="modal__img" :src="img.url" @click="select(img)" />
         <p class="modal__name">{{ img.name }}</p>
       </div>
     </div>
-    <div
-      class="modal__mask"
-      :class="{ modal__hidden: isHidden }"
-      @click="hiddenModal"
-    ></div>
+    <div class="modal__mask" :class="{ modal__hidden: isHidden }" @click="hiddenModal"></div>
   </div>
 </template>
 
@@ -24,7 +20,7 @@ export default {
       img: [],
       selectImage: null,
       selectName: null,
-      images: killerData,
+      images: killerData
     }
   },
   methods: {
@@ -33,8 +29,8 @@ export default {
     },
     select(img) {
       this.$emit('killerSelect', img)
-    },
-  },
+    }
+  }
 }
 </script>
 

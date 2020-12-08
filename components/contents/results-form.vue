@@ -16,33 +16,13 @@
           <input v-model="results.score" class="table__input" type="text" />
         </td>
         <td class="table__td">
-          <img
-            class="table__image"
-            :src="results.parkImage01"
-            @click="showPark01Modal"
-          />
-          <img
-            class="table__image"
-            :src="results.parkImage02"
-            @click="showPark02Modal"
-          />
-          <img
-            class="table__image"
-            :src="results.parkImage03"
-            @click="showPark03Modal"
-          />
-          <img
-            class="table__image"
-            :src="results.parkImage04"
-            @click="showPark04Modal"
-          />
+          <img class="table__image" :src="results.parkImage01" @click="showPark01Modal" />
+          <img class="table__image" :src="results.parkImage02" @click="showPark02Modal" />
+          <img class="table__image" :src="results.parkImage03" @click="showPark03Modal" />
+          <img class="table__image" :src="results.parkImage04" @click="showPark04Modal" />
         </td>
         <td class="table__td">
-          <select
-            class="table__select"
-            @change="winLose($event)"
-            v-model="results.escape"
-          >
+          <select class="table__select" @change="winLose($event)" v-model="results.escape">
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -82,17 +62,19 @@
 </template>
 
 <script>
-import { ADD_RESULT } from '~/apollo/queries'
+import { API } from 'aws-amplify'
+import { createResults } from '../../graphql/mutations'
 import KillerModal from '~/components/parts/killer-modal'
 import ParkModal from '~/components/parts/park-modal'
 export default {
   components: {
     KillerModal,
-    ParkModal,
+    ParkModal
   },
   data() {
     return {
       results: {
+        killerId: '',
         killerName: '',
         killerImage: null,
         score: '',
@@ -102,13 +84,13 @@ export default {
         parkImage04: null,
         escape: '',
         win: true,
-        lose: false,
+        lose: false
       },
       killerHidden: true,
       park01Hidden: true,
       park02Hidden: true,
       park03Hidden: true,
-      park04Hidden: true,
+      park04Hidden: true
     }
   },
   mounted() {
@@ -135,41 +117,18 @@ export default {
         this.results.lose = false
       }
     },
-    addResult() {
-      const {
-        killerName,
-        killerImage,
-        score,
-        parkImage01,
-        parkImage02,
-        parkImage03,
-        parkImage04,
-        escape,
-        win,
-        lose,
-      } = this.results
-      this.$apollo
-        .mutate({
-          mutation: ADD_RESULT,
+    async addResult() {
+      try {
+        await API.graphql({
+          query: createResults,
           variables: {
-            killerName,
-            killerImage,
-            score,
-            parkImage01,
-            parkImage02,
-            parkImage03,
-            parkImage04,
-            escape,
-            win,
-            lose,
-          },
+            input: this.results
+          }
         })
-        .then((data) => {
-          location.replace('/result')
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+        location.replace('/result')
+      } catch (error) {
+        console.log(error)
+      }
     },
     showKillerModal() {
       this.killerHidden = false
@@ -181,6 +140,7 @@ export default {
       this.killerHidden = true
       this.results.killerImage = event.url
       this.results.killerName = event.name
+      this.results.killerId = event.id
     },
     showPark01Modal() {
       this.park01Hidden = false
@@ -225,8 +185,8 @@ export default {
       this.park04Hidden = true
       this.results.parkImage04 = img
       localStorage.parkImage04 = img
-    },
-  },
+    }
+  }
 }
 </script>
 

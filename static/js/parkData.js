@@ -75,7 +75,7 @@ const parkData = [
   require('@/assets/img/park/park74.png'),
   require('@/assets/img/park/park75.png'),
   require('@/assets/img/park/park76.png'),
-  require('@/assets/img/park/park77.png'),
+  require('@/assets/img/park/park77.png')
 ]
 
 export default parkData
