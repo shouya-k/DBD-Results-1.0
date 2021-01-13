@@ -22,7 +22,7 @@
           <img class="table__image" :src="results.parkImage04" @click="showPark04Modal" />
         </td>
         <td class="table__td">
-          <select class="table__select" @change="winLose($event)" v-model="results.escape">
+          <select v-model="results.escape" class="table__select" @change="winLose($event)">
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
