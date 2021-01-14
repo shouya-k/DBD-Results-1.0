@@ -50,7 +50,7 @@ export default defineComponent({
   width: 100%;
   // height: 100px;
   font-size: 2.4rem;
-  position: relative;
+  position: sticky;
   top: 0;
   z-index: 3;
   background-image: url('~@/assets/img/bg.jpg');
