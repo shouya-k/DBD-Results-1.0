@@ -1,19 +1,26 @@
 <template>
   <div class="bg">
     <Header />
-    <From />
+    <Form />
   </div>
 </template>
 
-<script>
-import Header from '~/components/layout/header'
-import From from '~/components/contents/results-form'
-export default {
+<script lang="ts">
+import { defineComponent } from '@nuxtjs/composition-api'
+import Head from '../components/layout/header.vue'
+import Form from '../components/contents/results-form.vue'
+import { useCurrentUserState } from '../compositions/useCurrentUserState'
+export default defineComponent({
   components: {
-    Header,
-    From
+    Head,
+    Form
+  },
+  setup(props, context) {
+    const { currentUserState } = useCurrentUserState(context)
+
+    currentUserState()
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

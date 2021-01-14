@@ -36,7 +36,7 @@ export default {
 .table {
   width: 80%;
   margin: 0 auto 50px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #fff;
 
   &__th {
