@@ -39,13 +39,20 @@ export default {
   font-size: 1.6rem;
   color: #fff;
 
+  &__header {
+    position: fixed;
+    top: 120px;
+    width: 80%;
+    z-index: 10;
+  }
+
   &__th {
-    width: 20%;
-    padding-bottom: 20px;
+    width: 300px;
+    padding: 0 0 20px;
     text-align: center;
     border-bottom: 1px solid #fff;
-    position: sticky;
-    top: 100px;
+    // position: sticky;
+    // top: 120px;
     z-index: 1;
     background-image: url('~@/assets/img/bg.jpg');
     background-attachment: fixed;

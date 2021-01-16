@@ -1,10 +1,15 @@
 <template>
-  <header class="head">
+  <div class="head">
     <nav class="nav">
       <ul class="nav__menu">
         <li class="nav__item">
+          <nuxt-link to="/all-result" class="nav__link" active-class="nav__link--active" exact
+            >全体戦績</nuxt-link
+          >
+        </li>
+        <li class="nav__item">
           <nuxt-link to="/" class="nav__link" active-class="nav__link--active" exact
-            >戦績記録</nuxt-link
+            >個人戦績</nuxt-link
           >
         </li>
         <li class="nav__item">
@@ -17,50 +22,37 @@
             >戦績登録
           </nuxt-link>
         </li>
-
-        <li class="nav__item">
-          <a class="nav__link" @click="signout">ログアウト</a>
-        </li>
       </ul>
     </nav>
-  </header>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { Auth } from 'aws-amplify'
+
 export default defineComponent({
-  setup(props, context) {
-    const router = context.root.$router
-
-    const signout = async (): Promise<void> => {
-      await Auth.signOut()
-      router.push('/signin')
-    }
-
-    return {
-      signout
-    }
-  }
+  setup() {}
 })
 </script>
 
 <style lang="scss" scoped>
 .head {
   width: 100%;
-  // height: 100px;
-  font-size: 2.4rem;
+  height: 60px;
+  font-size: 2.6rem;
   position: sticky;
-  top: 0;
-  z-index: 3;
+  top: 60px;
+  z-index: 5;
   background-image: url('~@/assets/img/bg.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  margin-bottom: 35px;
 }
 
 .nav {
-  height: 100px;
+  height: 60px;
+  margin: auto 0;
 
   &__menu {
     display: flex;
@@ -72,17 +64,12 @@ export default defineComponent({
     &:first-child {
       padding-left: 60px;
     }
-
-    &:last-child {
-      margin-left: auto;
-      margin-right: 10px;
-    }
   }
 
   &__link {
     color: #fff;
     display: block;
-    line-height: 100px;
+    line-height: 60px;
     text-align: center;
     letter-spacing: 1px;
 

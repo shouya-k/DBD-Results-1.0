@@ -1,23 +1,18 @@
 <template>
   <header class="head">
+    <h1 class="head__title">DbD 戦績記録</h1>
     <nav class="nav">
       <ul class="nav__menu">
         <li class="nav__item">
-          <nuxt-link to="/" class="nav__link" active-class="nav__link--active" exact
-            >戦績記録</nuxt-link
+          <nuxt-link to="/killer" class="nav__link" active-class="nav__link--active" exact
+            >キラー</nuxt-link
           >
         </li>
         <li class="nav__item">
-          <nuxt-link to="/result" class="nav__link" active-class="nav__link--active"
-            >直近戦績</nuxt-link
+          <nuxt-link to="/survivor" class="nav__link" active-class="nav__link--active" exact
+            >サバイバー</nuxt-link
           >
         </li>
-        <li class="nav__item">
-          <nuxt-link to="/new-result" class="nav__link" active-class="nav__link--active"
-            >戦績登録
-          </nuxt-link>
-        </li>
-
         <li class="nav__item">
           <a class="nav__link" @click="signout">ログアウト</a>
         </li>
@@ -29,7 +24,12 @@
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { Auth } from 'aws-amplify'
+import SubHead from './SubHeader.vue'
+
 export default defineComponent({
+  components: {
+    SubHead
+  },
   setup(props, context) {
     const router = context.root.$router
 
@@ -48,42 +48,47 @@ export default defineComponent({
 <style lang="scss" scoped>
 .head {
   width: 100%;
-  // height: 100px;
+  height: 60px;
+  display: flex;
   font-size: 2.4rem;
+  font-weight: bold;
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 5;
   background-image: url('~@/assets/img/bg.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  border-bottom: 1px solid #fff;
+
+  &__title {
+    color: #fff;
+    font-weight: bold;
+    margin: auto 0 auto 40px;
+  }
 }
 
 .nav {
-  height: 100px;
+  // height: 100px;
+  margin: auto 0 auto auto;
 
   &__menu {
     display: flex;
   }
 
   &__item {
-    padding-left: 40px;
+    padding-right: 40px;
 
     &:first-child {
-      padding-left: 60px;
-    }
-
-    &:last-child {
-      margin-left: auto;
-      margin-right: 10px;
+      padding-right: 60px;
     }
   }
 
   &__link {
     color: #fff;
     display: block;
-    line-height: 100px;
     text-align: center;
+    line-height: 60px;
     letter-spacing: 1px;
 
     &:hover {

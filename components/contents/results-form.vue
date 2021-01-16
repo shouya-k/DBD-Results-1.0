@@ -212,7 +212,7 @@ export default {
 
 .table {
   width: 80%;
-  margin: 100px auto 70px;
+  margin: 120px auto 70px;
   font-size: 2rem;
   color: #fff;
 

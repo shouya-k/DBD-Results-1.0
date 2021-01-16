@@ -62,29 +62,35 @@ export default {
 <style lang="scss" scoped>
 .table {
   width: 80%;
-  margin: 0 auto 50px;
+  margin: 5px auto 50px;
   font-size: 1.6rem;
   color: #fff;
+
+  &__header {
+    position: fixed;
+    top: 120px;
+    width: 80%;
+  }
+
+  &__th {
+    width: 300px;
+    padding: 0 0 20px;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    // position: fixed;
+    // top: 0;
+    z-index: 10;
+    background-image: url('~@/assets/img/bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  }
 
   &__tr--win {
     background-color: rgba(255, 0, 0, 0.2);
   }
   &__tr--lose {
     background-color: rgba(0, 0, 255, 0.2);
-  }
-
-  &__th {
-    width: 20%;
-    padding: 0 0 20px;
-    text-align: center;
-    border-bottom: 1px solid #fff;
-    position: sticky;
-    top: 100px;
-    z-index: 1;
-    background-image: url('~@/assets/img/bg.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
   }
 
   &__img {
