@@ -9,7 +9,9 @@ DBD Mobile の戦績を登録できるアプリです。戦績登録から対戦
 
 ## リリース URL / DemoURL
 
-https://dev.d1x3pruihb2ayb.amplifyapp.com/
+現在、停止中。
+
+こちらのリンクにて新しく作成中です。 [リンク](https://github.com/shouya-k/DbD-Results)
 
 ## ローカル実行方法 / Build Setup
 
